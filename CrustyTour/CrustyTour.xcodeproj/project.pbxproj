@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		F83BD0AE2788E2C600F0F01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0AD2788E2C600F0F01E /* AppDelegate.swift */; };
-		F83BD0B02788E2C600F0F01E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0AF2788E2C600F0F01E /* ContentView.swift */; };
+		F83BD0B02788E2C600F0F01E /* ContentView_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0AF2788E2C600F0F01E /* ContentView_old.swift */; };
 		F83BD0B22788E2C600F0F01E /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0B12788E2C600F0F01E /* Experience.rcproject */; };
 		F83BD0B42788E2CC00F0F01E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BD0B32788E2CC00F0F01E /* Assets.xcassets */; };
 		F83BD0B72788E2CC00F0F01E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F83BD0B62788E2CC00F0F01E /* Preview Assets.xcassets */; };
 		F83BD0C12788E2CC00F0F01E /* CrustyTourTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0C02788E2CC00F0F01E /* CrustyTourTests.swift */; };
 		F83BD0CB2788E2CC00F0F01E /* CrustyTourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0CA2788E2CC00F0F01E /* CrustyTourUITests.swift */; };
 		F83BD0CD2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0CC2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift */; };
-		F850CEF3278E003A00B17ADF /* CTARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850CEF2278E003A00B17ADF /* CTARView.swift */; };
+		F850CEF3278E003A00B17ADF /* CTARView_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850CEF2278E003A00B17ADF /* CTARView_old.swift */; };
+		F875818D2790FAF80063A395 /* CTARCLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875818C2790FAF80063A395 /* CTARCLView.swift */; };
+		F8758190279106310063A395 /* ARCL in Frameworks */ = {isa = PBXBuildFile; productRef = F875818F279106310063A395 /* ARCL */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 /* Begin PBXFileReference section */
 		F83BD0AA2788E2C600F0F01E /* CrustyTour.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrustyTour.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83BD0AD2788E2C600F0F01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F83BD0AF2788E2C600F0F01E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F83BD0AF2788E2C600F0F01E /* ContentView_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_old.swift; sourceTree = "<group>"; };
 		F83BD0B12788E2C600F0F01E /* Experience.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experience.rcproject; sourceTree = "<group>"; };
 		F83BD0B32788E2CC00F0F01E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F83BD0B62788E2CC00F0F01E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -47,7 +49,9 @@
 		F83BD0C62788E2CC00F0F01E /* CrustyTourUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrustyTourUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83BD0CA2788E2CC00F0F01E /* CrustyTourUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrustyTourUITests.swift; sourceTree = "<group>"; };
 		F83BD0CC2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrustyTourUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F850CEF2278E003A00B17ADF /* CTARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARView.swift; sourceTree = "<group>"; };
+		F850CEF2278E003A00B17ADF /* CTARView_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARView_old.swift; sourceTree = "<group>"; };
+		F853E566278FF166000D7D83 /* ARKit-CoreLocation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ARKit-CoreLocation"; path = "../../ARKit-CoreLocation"; sourceTree = "<group>"; };
+		F875818C2790FAF80063A395 /* CTARCLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARCLView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8758190279106310063A395 /* ARCL in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,10 +83,12 @@
 		F83BD0A12788E2C600F0F01E = {
 			isa = PBXGroup;
 			children = (
+				F853E565278FF166000D7D83 /* Packages */,
 				F83BD0AC2788E2C600F0F01E /* CrustyTour */,
 				F83BD0BF2788E2CC00F0F01E /* CrustyTourTests */,
 				F83BD0C92788E2CC00F0F01E /* CrustyTourUITests */,
 				F83BD0AB2788E2C600F0F01E /* Products */,
+				F875818E279106310063A395 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,11 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				F83BD0AD2788E2C600F0F01E /* AppDelegate.swift */,
-				F83BD0AF2788E2C600F0F01E /* ContentView.swift */,
+				F875818C2790FAF80063A395 /* CTARCLView.swift */,
+				F83BD0AF2788E2C600F0F01E /* ContentView_old.swift */,
+				F850CEF2278E003A00B17ADF /* CTARView_old.swift */,
 				F83BD0B12788E2C600F0F01E /* Experience.rcproject */,
 				F83BD0B32788E2CC00F0F01E /* Assets.xcassets */,
 				F83BD0B52788E2CC00F0F01E /* Preview Content */,
-				F850CEF2278E003A00B17ADF /* CTARView.swift */,
 			);
 			path = CrustyTour;
 			sourceTree = "<group>";
@@ -133,6 +141,21 @@
 			path = CrustyTourUITests;
 			sourceTree = "<group>";
 		};
+		F853E565278FF166000D7D83 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				F853E566278FF166000D7D83 /* ARKit-CoreLocation */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		F875818E279106310063A395 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +172,9 @@
 			dependencies = (
 			);
 			name = CrustyTour;
+			packageProductDependencies = (
+				F875818F279106310063A395 /* ARCL */,
+			);
 			productName = CrustyTour;
 			productReference = F83BD0AA2788E2C600F0F01E /* CrustyTour.app */;
 			productType = "com.apple.product-type.application";
@@ -263,10 +289,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F83BD0B02788E2C600F0F01E /* ContentView.swift in Sources */,
+				F83BD0B02788E2C600F0F01E /* ContentView_old.swift in Sources */,
 				F83BD0AE2788E2C600F0F01E /* AppDelegate.swift in Sources */,
-				F850CEF3278E003A00B17ADF /* CTARView.swift in Sources */,
+				F850CEF3278E003A00B17ADF /* CTARView_old.swift in Sources */,
 				F83BD0B22788E2C600F0F01E /* Experience.rcproject in Sources */,
+				F875818D2790FAF80063A395 /* CTARCLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +624,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F875818F279106310063A395 /* ARCL */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ARCL;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F83BD0A22788E2C600F0F01E /* Project object */;
 }
