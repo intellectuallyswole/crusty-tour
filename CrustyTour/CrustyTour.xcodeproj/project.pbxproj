@@ -16,8 +16,9 @@
 		F83BD0CB2788E2CC00F0F01E /* CrustyTourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0CA2788E2CC00F0F01E /* CrustyTourUITests.swift */; };
 		F83BD0CD2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0CC2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift */; };
 		F850CEF3278E003A00B17ADF /* CTARView_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850CEF2278E003A00B17ADF /* CTARView_old.swift */; };
-		F875818D2790FAF80063A395 /* CTARCLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875818C2790FAF80063A395 /* CTARCLView.swift */; };
+		F875818D2790FAF80063A395 /* CTARCLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875818C2790FAF80063A395 /* CTARCLViewController.swift */; };
 		F8758190279106310063A395 /* ARCL in Frameworks */ = {isa = PBXBuildFile; productRef = F875818F279106310063A395 /* ARCL */; };
+		F891A9942792126400CC3C19 /* CTARCLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F891A9932792126400CC3C19 /* CTARCLView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +52,8 @@
 		F83BD0CC2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrustyTourUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F850CEF2278E003A00B17ADF /* CTARView_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARView_old.swift; sourceTree = "<group>"; };
 		F853E566278FF166000D7D83 /* ARKit-CoreLocation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ARKit-CoreLocation"; path = "../../ARKit-CoreLocation"; sourceTree = "<group>"; };
-		F875818C2790FAF80063A395 /* CTARCLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARCLView.swift; sourceTree = "<group>"; };
+		F875818C2790FAF80063A395 /* CTARCLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARCLViewController.swift; sourceTree = "<group>"; };
+		F891A9932792126400CC3C19 /* CTARCLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARCLView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				F83BD0AD2788E2C600F0F01E /* AppDelegate.swift */,
-				F875818C2790FAF80063A395 /* CTARCLView.swift */,
+				F875818C2790FAF80063A395 /* CTARCLViewController.swift */,
+				F891A9932792126400CC3C19 /* CTARCLView.swift */,
 				F83BD0AF2788E2C600F0F01E /* ContentView_old.swift */,
 				F850CEF2278E003A00B17ADF /* CTARView_old.swift */,
 				F83BD0B12788E2C600F0F01E /* Experience.rcproject */,
@@ -293,7 +296,8 @@
 				F83BD0AE2788E2C600F0F01E /* AppDelegate.swift in Sources */,
 				F850CEF3278E003A00B17ADF /* CTARView_old.swift in Sources */,
 				F83BD0B22788E2C600F0F01E /* Experience.rcproject in Sources */,
-				F875818D2790FAF80063A395 /* CTARCLView.swift in Sources */,
+				F875818D2790FAF80063A395 /* CTARCLViewController.swift in Sources */,
+				F891A9942792126400CC3C19 /* CTARCLView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +462,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app needs to know where you are in the world to properly position the avalanche regions.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -489,6 +494,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app needs to know where you are in the world to properly position the avalanche regions.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
