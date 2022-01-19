@@ -14,8 +14,8 @@ import SceneKit.ModelIO
 import ARKit
 
 class TestModelIOViewController: UIViewController, ARSCNViewDelegate {
-//    var arView = ARSCNView()
-    var sceneView = SCNView()
+    var arView = ARSCNView()
+//    var sceneView = SCNView()
     override func viewDidLoad() {
         super.viewDidLoad()
         let bundle = Bundle.main
@@ -25,19 +25,41 @@ class TestModelIOViewController: UIViewController, ARSCNViewDelegate {
         let scene = SCNScene()
         let object = asset.object(at: 0)
         let node = SCNNode(mdlObject: object)
-        scene.rootNode.addChildNode(node)
-//        arView.delegate = self
-//        arView.scene = scene
-        sceneView.scene = scene
-        self.view.addSubview(sceneView)
         
-        sceneView.autoenablesDefaultLighting = true
-        sceneView.allowsCameraControl = true
-        sceneView.scene = scene
-        sceneView.backgroundColor = UIColor.black
+//        let material = SCNMaterial()
+//        material.transparency = 0.5
+//        material.diffuse.contents = UIColor.magenta
+//        material.ambient.contents = UIColor.green
+//        material.lightingModel = .constant
+       
+        node.position = SCNVector3(0, 0, -0.2)
+        scene.rootNode.addChildNode(node)
+        arView.delegate = self
+        arView.scene = scene
+//        sceneView.scene = scene
+//        self.view.addSubview(sceneView)
+        self.view.addSubview(arView)
+        arView.autoenablesDefaultLighting = true
+        
+//        sceneView.autoenablesDefaultLighting = true
+//        sceneView.allowsCameraControl = true
+//        sceneView.scene = scene
+//        sceneView.backgroundColor = UIColor.black
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        sceneView.frame = self.view.bounds
+        arView.frame = self.view.bounds
+    }
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+       let configuration = ARWorldTrackingConfiguration()
+        
+        configuration.worldAlignment = .gravityAndHeading
+        
+        arView.session.run(configuration, options: [.resetTracking])
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+       super.viewWillDisappear(animated)
+       arView.session.pause()
     }
 }
