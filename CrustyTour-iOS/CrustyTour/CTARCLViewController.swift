@@ -41,6 +41,9 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
         let annotationNode = LocationAnnotationNode(location: location, image: image)
         annotationNode.scaleRelativeToDistance = true
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+        
+
+
 
         
 //        let geoAnchor = ARGeoAnchor(coordinate: location)
