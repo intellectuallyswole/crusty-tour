@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
 //        window.rootViewController = UIHostingController(rootView: contentView)
 //        window.rootViewController = CTARCLViewController()
-        window.rootViewController = TestModelIOViewController()
+        window.rootViewController = CTARCLViewController()
         self.window = window
         window.makeKeyAndVisible()
         return true

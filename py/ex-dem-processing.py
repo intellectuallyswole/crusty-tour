@@ -8,10 +8,10 @@ import seaborn as sns
 import geopandas as gpd
 #%matplotlib inline
 
-bounds = gpd.read_file('./data/processed/area_of_study_bounds.gpkg').bounds
-print(bounds)
+#bounds = gpd.read_file('./data/processed/area_of_study_bounds.gpkg').bounds
+#print(bounds)
 
-west, south, east, north = bounds = bounds.loc[0]
+#west, south, east, north = bounds = bounds.loc[0]
 west, south, east, north = bounds  = west - .05, south - .05, east + .05, north + .05
 print(bounds)
 
