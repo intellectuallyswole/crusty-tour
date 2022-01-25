@@ -11,6 +11,9 @@ import Foundation
 import RealityKit
 import ARKit
 import ARKit_CoreLocation
+import ModelIO
+import SceneKit
+import SceneKit.ModelIO
 
 class CTARCLViewController: UIViewController, ARSCNViewDelegate {
     var sceneLocationView : SceneLocationView = SceneLocationView()
@@ -34,10 +37,6 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
         
 
         let location = DODOWAH_BACKYARD_LOCATION
-//        guard let image = UIImage.init(named: "Castro") else { return; }
-//        let annotationNode = LocationAnnotationNode(location: location, image: image)
-//        annotationNode.scaleRelativeToDistance = true
-        
         let bundle = Bundle.main
         let path = bundle.path(forResource:"N39W121_translate_hmm_stl", ofType: "stl")
         let url = URL(fileURLWithPath: path!)
@@ -52,37 +51,37 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
         mesh_obj.transform = transform
         // (lldb) po ((object as! MDLMesh).submeshes![0] as! MDLSubmesh).material!
         // <MDLMaterial: 0x2812c52c0>
-        let node = SCNNode(mdlObject: mesh_obj)
-//        let texture = MDLTexture.init(named: "N39W121-slope-012422-slope-colormap")
-        let texture_url = bundle.url(forResource:"N39W121-slope-012422-slope-colormap", withExtension: ".png")
-        let scatFunction = MDLScatteringFunction()
-        let material = MDLMaterial(name: "creative_name", scatteringFunction: scatFunction)
-        let property = MDLMaterialProperty(name:"slope-map", semantic: .baseColor, url: texture_url)
-        material.setProperty(property)
-        for submesh in mesh_obj.submeshes! {
-            if let submesh = submesh as? MDLSubmesh {
-                submesh.material = material
-            }
+        var node = SCNNode(mdlObject: mesh_obj)
+        guard let mesh_geometry = node.geometry else {
+            fatalError("Failed to extract SCNGeometry from SCNNode")
         }
+//        let texture_url = bundle.url(forResource:"N39W121-slope-012422-slope-colormap", withExtension: ".png")
+        // It is dumb that you have to do this to initialize an MDLMaterial but what do I know.
+//        let scatFunction = MDLScatteringFunction()
+//        let material = MDLMaterial(name: "creative_name", scatteringFunction: scatFunction)
+//        let property = MDLMaterialProperty(name:"slope-map", semantic: .baseColor, url: texture_url)
+//        material.setProperty(property)
+//        for submesh in mesh_obj.submeshes! {
+//            if let submesh = submesh as? MDLSubmesh {
+//                submesh.material = material
+//            }
+//        }
         
+        let material = SCNMaterial()
+        material.transparency = 0.5
+        material.diffuse.contents = UIImage.init(named:"N39W121-slope-012422-slope-colormap.png")
+        material.ambient.contents = UIColor.green
+        material.lightingModel = .constant
+        mesh_geometry.firstMaterial = material
+        // Not sure if this line is necessary
+        node = SCNNode(geometry: mesh_geometry)
+        // Transform the node to a lat/long location
         let locationNode = LocationNode(location:location)
         locationNode.addChildNode(node)
-        
-        
-//        let material = SCNMaterial()
-//        material.transparency = 0.5
-//        material.diffuse.contents = UIColor.magenta
-//        material.ambient.contents = UIColor.green
-//        material.lightingModel = .constant
-       
+        // and add it to the AR scene.
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: locationNode)
         
-
-
-
-        
-//        let geoAnchor = ARGeoAnchor(coordinate: location)
-//        arView.session.add(anchor: geoAnchor)
+        // Here's how to add color to an SCNGeometry.
     }
     
     
