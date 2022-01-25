@@ -16,11 +16,13 @@
 		F83BD0CB2788E2CC00F0F01E /* CrustyTourUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0CA2788E2CC00F0F01E /* CrustyTourUITests.swift */; };
 		F83BD0CD2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83BD0CC2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift */; };
 		F850CEF3278E003A00B17ADF /* CTARView_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = F850CEF2278E003A00B17ADF /* CTARView_old.swift */; };
+		F8585B97279F826F0084ACC4 /* N39W121-slope-012422-slope-colormap.png in Resources */ = {isa = PBXBuildFile; fileRef = F8585B96279F826F0084ACC4 /* N39W121-slope-012422-slope-colormap.png */; };
 		F875818D2790FAF80063A395 /* CTARCLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F875818C2790FAF80063A395 /* CTARCLViewController.swift */; };
 		F8758190279106310063A395 /* ARCL in Frameworks */ = {isa = PBXBuildFile; productRef = F875818F279106310063A395 /* ARCL */; };
 		F891A9942792126400CC3C19 /* CTARCLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F891A9932792126400CC3C19 /* CTARCLView.swift */; };
 		F8C66C38279794E500D8249C /* TestModelIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C66C37279794E500D8249C /* TestModelIO.swift */; };
 		F8C66C3A2797994100D8249C /* N39W121_translate_hmm_stl.stl in Resources */ = {isa = PBXBuildFile; fileRef = F8C66C392797994100D8249C /* N39W121_translate_hmm_stl.stl */; };
+		F8CAC20C2799DB64001928D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CAC20B2799DB64001928D0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +55,13 @@
 		F83BD0CA2788E2CC00F0F01E /* CrustyTourUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrustyTourUITests.swift; sourceTree = "<group>"; };
 		F83BD0CC2788E2CC00F0F01E /* CrustyTourUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrustyTourUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F850CEF2278E003A00B17ADF /* CTARView_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARView_old.swift; sourceTree = "<group>"; };
+		F8585B96279F826F0084ACC4 /* N39W121-slope-012422-slope-colormap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "N39W121-slope-012422-slope-colormap.png"; path = "../../map_data/N39W121-slope-012422-slope-colormap.png"; sourceTree = "<group>"; };
 		F875818C2790FAF80063A395 /* CTARCLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARCLViewController.swift; sourceTree = "<group>"; };
 		F891A9932792126400CC3C19 /* CTARCLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTARCLView.swift; sourceTree = "<group>"; };
 		F8C66C36279794BB00D8249C /* ARKit-CoreLocation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ARKit-CoreLocation"; path = "../../xcode/ARKit-CoreLocation"; sourceTree = "<group>"; };
 		F8C66C37279794E500D8249C /* TestModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModelIO.swift; sourceTree = "<group>"; };
 		F8C66C392797994100D8249C /* N39W121_translate_hmm_stl.stl */ = {isa = PBXFileReference; lastKnownFileType = file; name = N39W121_translate_hmm_stl.stl; path = ../../map_data/N39W121_translate_hmm_stl.stl; sourceTree = "<group>"; };
+		F8CAC20B2799DB64001928D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				F8C66C392797994100D8249C /* N39W121_translate_hmm_stl.stl */,
+				F8585B96279F826F0084ACC4 /* N39W121-slope-012422-slope-colormap.png */,
+				F8CAC20B2799DB64001928D0 /* Constants.swift */,
 				F83BD0AD2788E2C600F0F01E /* AppDelegate.swift */,
 				F8C66C37279794E500D8249C /* TestModelIO.swift */,
 				F875818C2790FAF80063A395 /* CTARCLViewController.swift */,
@@ -273,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F83BD0B72788E2CC00F0F01E /* Preview Assets.xcassets in Resources */,
+				F8585B97279F826F0084ACC4 /* N39W121-slope-012422-slope-colormap.png in Resources */,
 				F83BD0B42788E2CC00F0F01E /* Assets.xcassets in Resources */,
 				F8C66C3A2797994100D8249C /* N39W121_translate_hmm_stl.stl in Resources */,
 			);
@@ -306,6 +313,7 @@
 				F83BD0B22788E2C600F0F01E /* Experience.rcproject in Sources */,
 				F875818D2790FAF80063A395 /* CTARCLViewController.swift in Sources */,
 				F891A9942792126400CC3C19 /* CTARCLView.swift in Sources */,
+				F8CAC20C2799DB64001928D0 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

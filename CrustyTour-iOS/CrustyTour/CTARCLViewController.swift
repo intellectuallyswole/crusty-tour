@@ -32,11 +32,8 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
         sceneLocationView = self.buildSceneLocationView()
         self.view.addSubview(sceneLocationView)
         
-        let DODOWAH_BACKYARD = CLLocationCoordinate2DMake(39.23965369024172, -120.06924041182108)
-        //                                              +37.75574832,       -122.43995607
-        let GRAND_VIEW_AVE = CLLocationCoordinate2DMake(37.755776505037254, -122.4400525)
-        let LITERALLY_RIGHT_HERE = CLLocationCoordinate2DMake(37.75574832,       -122.43995607)
-        let location = CLLocation(coordinate: LITERALLY_RIGHT_HERE, altitude: 122)
+
+        let location = DODOWAH_BACKYARD_LOCATION
 //        guard let image = UIImage.init(named: "Castro") else { return; }
 //        let annotationNode = LocationAnnotationNode(location: location, image: image)
 //        annotationNode.scaleRelativeToDistance = true
@@ -45,10 +42,28 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
         let path = bundle.path(forResource:"N39W121_translate_hmm_stl", ofType: "stl")
         let url = URL(fileURLWithPath: path!)
         let asset = MDLAsset(url: url)
-        let scene = SCNScene()
-        let object = asset.object(at: 0) // (lldb) po ((object as! MDLMesh).submeshes![0] as! MDLSubmesh).material!
+        guard let mesh_obj = asset.object(at:0) as? MDLMesh else {
+            fatalError("Failed to get mesh from asset.")
+        }
+        let transform = MDLTransform.init()
+        transform.rotation = vector_float3(x:-.pi/2, y:0, z:0)
+        transform.scale = vector_float3(x:0.1,y:0.1,z:0.1)
+        transform.translation = vector_float3(x: 10, y: -20, z: -30)
+        mesh_obj.transform = transform
+        // (lldb) po ((object as! MDLMesh).submeshes![0] as! MDLSubmesh).material!
         // <MDLMaterial: 0x2812c52c0>
-        let node = SCNNode(mdlObject: object)
+        let node = SCNNode(mdlObject: mesh_obj)
+//        let texture = MDLTexture.init(named: "N39W121-slope-012422-slope-colormap")
+        let texture_url = bundle.url(forResource:"N39W121-slope-012422-slope-colormap", withExtension: ".png")
+        let scatFunction = MDLScatteringFunction()
+        let material = MDLMaterial(name: "creative_name", scatteringFunction: scatFunction)
+        let property = MDLMaterialProperty(name:"slope-map", semantic: .baseColor, url: texture_url)
+        material.setProperty(property)
+        for submesh in mesh_obj.submeshes! {
+            if let submesh = submesh as? MDLSubmesh {
+                submesh.material = material
+            }
+        }
         
         let locationNode = LocationNode(location:location)
         locationNode.addChildNode(node)
