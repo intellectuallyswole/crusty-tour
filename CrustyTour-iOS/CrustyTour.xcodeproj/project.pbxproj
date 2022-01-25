@@ -56,7 +56,6 @@
 		F8C66C37279794E500D8249C /* TestModelIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModelIO.swift; sourceTree = "<group>"; };
 		F8C66C392797994100D8249C /* N39W121_translate_hmm_stl.stl */ = {isa = PBXFileReference; lastKnownFileType = file; name = N39W121_translate_hmm_stl.stl; path = ../../map_data/N39W121_translate_hmm_stl.stl; sourceTree = "<group>"; };
 		F8CAC20B2799DB64001928D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		F8FB7A4E27A06F5B00BF8EEE /* CTPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = CTPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +109,6 @@
 		F83BD0AC2788E2C600F0F01E /* CrustyTour */ = {
 			isa = PBXGroup;
 			children = (
-				F8FB7A4E27A06F5B00BF8EEE /* CTPlayground.playground */,
 				F8C66C392797994100D8249C /* N39W121_translate_hmm_stl.stl */,
 				F8585B96279F826F0084ACC4 /* N39W121-slope-012422-slope-colormap.png */,
 				F8CAC20B2799DB64001928D0 /* Constants.swift */,
