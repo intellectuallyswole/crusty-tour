@@ -38,7 +38,8 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
 
         let location = DODOWAH_BACKYARD_LOCATION
         let bundle = Bundle.main
-        let path = bundle.path(forResource:"CrustyTour.scnassets/N39W121_translate_hmm_stl", ofType: "stl")
+//        let path = bundle.path(forResource:"CrustyTour.scnassets/N39W121_translate_hmm_stl", ofType: "stl")
+        let path = bundle.path(forResource:"CrustyTour.scnassets/N39W121_translate_hmm_obj", ofType: "obj")
         let url = URL(fileURLWithPath: path!)
         let asset = MDLAsset(url: url)
         guard let mesh_obj = asset.object(at:0) as? MDLMesh else {
@@ -59,59 +60,59 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
 //            }
 //        }
         
-        let material = elevationMesh.firstMaterial!
-        material.transparency = 0.9
-//        let texture_img = UIImage.init(named:"N39W121-slope-012422-slope-colormap.png")
-        let texture_img = UIImage.init(named:"CrustyTour.scnassets/greencircles.png")
-        material.diffuse.contents = texture_img
-
-        let sphere = SCNSphere(radius: 1.0)
-        let sphereNode = SCNNode(geometry: sphere)
-        let sphereMaterial = sphere.firstMaterial!
-        sphereMaterial.diffuse.contents = texture_img
-        sphereNode.position = SCNVector3(x:0,y:0,z:-3)
-                
-       
-        let vertexSource = elevationMesh.sources[0]
-        
-//        let simdFloat = SIMD3<Float>(SIMD3<Float>(vertexData.withUnsafeBytes { $0.load(as: SIMD3<Float>.self) }))
-        // Get the vertex sources
-
-        let stride = vertexSource.dataStride; // in bytes
-        let offset = vertexSource.dataOffset; // in bytes
-
-        let componentsPerVector = vertexSource.componentsPerVector;
-        let bytesPerVector = componentsPerVector * vertexSource.bytesPerComponent;
-        let vectorCount = vertexSource.vectorCount;
-
-        var vertices: [SIMD3<Float>] = [] // A new array for vertices
-        var texcoords: [SIMD2<Float>] = []
-        vertexSource.data.withUnsafeBytes(_: { (floatPtr: UnsafePointer<SIMD3<Float>>) in
-            for i in 0..<vectorCount {
-                let vertex : SIMD3<Float> = floatPtr[i];
-                vertices.append(vertex)
-                texcoords.append(SIMD2<Float>(vertex.x, vertex.z))
-            }
-        })
-        guard let device = MTLCreateSystemDefaultDevice() else {
-            fatalError("Could not instantiate Metal Device.")
-        }
-        let uvBuffer = device.makeBuffer(bytes: texcoords,
-                                         length: texcoords.count * MemoryLayout<SIMD2<Float>>.size,
-                                         options: [.cpuCacheModeWriteCombined])
-        
-        let uvSource = SCNGeometrySource(buffer: uvBuffer!,
-                                         vertexFormat: .float2,
-                                         semantic: .texcoord,
-                                         vertexCount: texcoords.count,
-                                         dataOffset: 0,
-                                         dataStride: MemoryLayout<SIMD2<Float>>.size)
-        // Steal sphere texture coordinates
-//        let sphereTextCoords = sphere.sources(for: .texcoord)[0]
-        var newSources = [SCNGeometrySource](elevationMesh.sources)
-        // Apply made up textures
-        newSources.append(uvSource)
-        let knockoffMeshGeometry = SCNGeometry(sources: newSources, elements: elevationMesh.elements)
+//        let material = elevationMesh.firstMaterial!
+//        material.transparency = 0.9
+////        let texture_img = UIImage.init(named:"N39W121-slope-012422-slope-colormap.png")
+//        let texture_img = UIImage.init(named:"CrustyTour.scnassets/greencircles.png")
+//        material.diffuse.contents = texture_img
+//
+//        let sphere = SCNSphere(radius: 1.0)
+//        let sphereNode = SCNNode(geometry: sphere)
+//        let sphereMaterial = sphere.firstMaterial!
+//        sphereMaterial.diffuse.contents = texture_img
+//        sphereNode.position = SCNVector3(x:0,y:0,z:-3)
+//
+//
+//        let vertexSource = elevationMesh.sources[0]
+//
+////        let simdFloat = SIMD3<Float>(SIMD3<Float>(vertexData.withUnsafeBytes { $0.load(as: SIMD3<Float>.self) }))
+//        // Get the vertex sources
+//
+//        let stride = vertexSource.dataStride; // in bytes
+//        let offset = vertexSource.dataOffset; // in bytes
+//
+//        let componentsPerVector = vertexSource.componentsPerVector;
+//        let bytesPerVector = componentsPerVector * vertexSource.bytesPerComponent;
+//        let vectorCount = vertexSource.vectorCount;
+//
+//        var vertices: [SIMD3<Float>] = [] // A new array for vertices
+//        var texcoords: [SIMD2<Float>] = []
+//        vertexSource.data.withUnsafeBytes(_: { (floatPtr: UnsafePointer<SIMD3<Float>>) in
+//            for i in 0..<vectorCount {
+//                let vertex : SIMD3<Float> = floatPtr[i];
+//                vertices.append(vertex)
+//                texcoords.append(SIMD2<Float>(vertex.x, vertex.z))
+//            }
+//        })
+//        guard let device = MTLCreateSystemDefaultDevice() else {
+//            fatalError("Could not instantiate Metal Device.")
+//        }
+//        let uvBuffer = device.makeBuffer(bytes: texcoords,
+//                                         length: texcoords.count * MemoryLayout<SIMD2<Float>>.size,
+//                                         options: [.cpuCacheModeWriteCombined])
+//
+//        let uvSource = SCNGeometrySource(buffer: uvBuffer!,
+//                                         vertexFormat: .float2,
+//                                         semantic: .texcoord,
+//                                         vertexCount: texcoords.count,
+//                                         dataOffset: 0,
+//                                         dataStride: MemoryLayout<SIMD2<Float>>.size)
+//        // Steal sphere texture coordinates
+////        let sphereTextCoords = sphere.sources(for: .texcoord)[0]
+//        var newSources = [SCNGeometrySource](elevationMesh.sources)
+//        // Apply made up textures
+//        newSources.append(uvSource)
+//        let knockoffMeshGeometry = SCNGeometry(sources: newSources, elements: elevationMesh.elements)
 
         // for each vector, read the bytes
 
@@ -128,7 +129,8 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
 //        }
 
         
-        let node = SCNNode(geometry: knockoffMeshGeometry)
+//        let node = SCNNode(geometry: knockoffMeshGeometry)
+        let node = SCNNode(geometry: elevationMesh)
 //        material.emission.contents = texture_img
 //        material.diffuse.wrapS = .repeat
 //        material.diffuse.wrapT = .repeat
@@ -149,7 +151,7 @@ class CTARCLViewController: UIViewController, ARSCNViewDelegate {
         
 //        elevationMesh.sources.append(sphereTextCoords)
         
-        locationNode.addChildNode(sphereNode)
+//        locationNode.addChildNode(sphe reNode)
         
         // and add it to the AR scene.
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: locationNode)
